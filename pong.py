@@ -27,6 +27,20 @@ class Start(): #klasa wyświetlająca menu po włączeniu gry
            self.is_start = False
            self.s.clear()
 
+class Scoreboard(): #klasa odpowiedzialna za wyświetlanie punktacji
+    def __init__(self):
+        self.pen = turtle.Turtle()
+        self.pen.speed(0)
+        self.pen.color("white")
+        self.pen.penup()
+        self.pen.hideturtle()
+        self.pen.goto(0,220)
+        self.pen.write("0        0", align="center", font=("Courier", 48, "bold"))
+
+    def Points(self, score_a, score_b):
+        self.pen.clear()
+        self.pen.write("{}        {}".format(score_a, score_b), align="center", font=("Courier", 48, "bold"))
+
 class Quit():
     def __init__(self):
         self.running = True
