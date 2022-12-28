@@ -41,6 +41,26 @@ class Scoreboard(): #klasa odpowiedzialna za wyświetlanie punktacji
         self.pen.clear()
         self.pen.write("{}        {}".format(score_a, score_b), align="center", font=("Courier", 48, "bold"))
 
+class Pause(): #klasa odpowiedzialna za pauzę gry
+    def __init__(self):
+        self.is_paused = False
+        self.p = turtle.Turtle()
+        self.p.speed(0)
+        self.p.color("white")
+        self.p.penup()
+        self.p.hideturtle()
+
+    def toggle_pause(self):
+        if self.is_paused == True:
+            self.is_paused = False
+            self.p.clear()
+        else:
+            self.is_paused = True
+            self.p.goto(0,0)
+            self.p.write("PAUSE", align="center", font=("Courier", 60, "bold"))
+            self.p.goto(0,-250)
+            self.p.write("KEYBINDING:\n w/s and Up/Down -> moving paddles\n p -> PAUSE\n q -> exit the game\n z -> speed up the ball\n x -> slow down the ball\n\n PRESS SPACEBAR TO START", align="center", font=("Courier", 18, "bold"))
+
 class Quit():
     def __init__(self):
         self.running = True
