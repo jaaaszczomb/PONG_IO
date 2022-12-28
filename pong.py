@@ -151,6 +151,18 @@ class PongBall(Item):
             self.item.dx *= -1
             winsound.PlaySound("hit.wav", winsound.SND_ASYNC)
 
+def bind(wn, a, b, pauza, start, quit, ball): #przypisanie i nasłuchiwanie klawiszy
+    wn.listen()
+    wn.onkeypress(a.paddle_up, "w")
+    wn.onkeypress(a.paddle_down, "s")
+    wn.onkeypress(b.paddle_up, "Up")
+    wn.onkeypress(b.paddle_down, "Down")
+    wn.onkeypress(pauza.toggle_pause, "p")
+    wn.onkeypress(start.off_start, "space")
+    wn.onkeypress(quit.omaewamoushindeiru, "q")
+    wn.onkeypress(ball.faster, "z")
+    wn.onkeypress(ball.slower, "x")
+
 def PongSilnik(window):
     paddle_a = PongPaddle(-350,0,50)
     paddle_b = PongPaddle(350,0,50)
